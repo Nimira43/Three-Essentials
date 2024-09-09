@@ -1,4 +1,5 @@
-Stats and OrbitControls imported in with @react-three/drei
+axesHelper
+gridHelper
 
 
 

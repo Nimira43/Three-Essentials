@@ -18,7 +18,9 @@ export default function App() {
       <Polyhedron position={[0.75, 0.75, 0]} polyhedron={polyhedron} />
       <OrbitControls />
       <axesHelper args={[5]} />
-      <gridHelper />
+      <gridHelper args={[20, 20, 0xffd700, '#87ceeb']} />
+      <gridHelper rotation-x={Math.PI / 4} />
+      <gridHelper rotation={[Math.PI / 4, 0, 0]} />
       <Stats />
     </Canvas>
   )
