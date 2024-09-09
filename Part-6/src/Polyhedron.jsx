@@ -21,7 +21,7 @@ export default function Polyhedron({ position, polyhedron }) {
       }}
       geometry={polyhedron[count]}
     >
-      <meshBasicMaterial color={'lime'} wireframe />
+      <meshBasicMaterial color={'#ff4500'} wireframe />
     </mesh>
   )
 }
