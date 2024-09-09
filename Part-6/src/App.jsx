@@ -18,6 +18,7 @@ export default function App() {
       <Polyhedron position={[0.75, 0.75, 0]} polyhedron={polyhedron} />
       <OrbitControls />
       <axesHelper args={[5]} />
+      <gridHelper />
       <Stats />
     </Canvas>
   )
