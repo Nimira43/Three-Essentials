@@ -1,52 +1,26 @@
 import { Canvas } from '@react-three/fiber'
 import Polyhedron from './Polyhedron'
 import * as THREE from 'three'
-import { useMemo } from 'react'
 import { Stats, OrbitControls } from '@react-three/drei'
-import { useControls } from 'leva'
 
 export default function App() {
-  const polyhedron = useMemo(
-    () => [
-      new THREE.BoxGeometry(),
-      new THREE.SphereGeometry(0.785398),
-      new THREE.DodecahedronGeometry(0.785398),
-    ],
-    []
-  )
-
-  const options = useMemo(() => {
-    return {
-      x: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
-      y: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
-      z: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
-      visible: true,
-      color: { value: '#ff4500' },
-    }
-  }, [])
-
-  const pA = useControls('Polyhedron A', options)
-  const pB = useControls('Polyhedron B', options)
+  const polyhedron = [
+    new THREE.BoxGeometry(),
+    new THREE.SphereGeometry(0.785398),
+    new THREE.DodecahedronGeometry(0.785398),
+  ]
 
   return (
-    <Canvas camera={{ position: [1, 2, 3] }}>
-      <Polyhedron
-        position={[-1, 1, 0]}
-        rotation={[pA.x, pA.y, pA.z]}
-        visible={pA.visible}
-        color={pA.color}
-        polyhedron={polyhedron}
-      />
-      <Polyhedron
-        position={[1, 1, 0]}
-        rotation={[pB.x, pB.y, pB.z]}
-        visible={pB.visible}
-        color={pB.color}
-        polyhedron={polyhedron}
-      />
-      <OrbitControls target-y={1} />
+    <Canvas camera={{ position: [0, 0, 3] }}>
+      <Polyhedron position={[-0.75, -0.75, 0]} polyhedron={polyhedron} />
+      <Polyhedron position={[0.75, -0.75, 0]} polyhedron={polyhedron} />
+      <Polyhedron position={[-0.75, 0.75, 0]} polyhedron={polyhedron} />
+      <Polyhedron position={[0.75, 0.75, 0]} polyhedron={polyhedron} />
+      <OrbitControls />
       <axesHelper args={[5]} />
-      <gridHelper />
+      <gridHelper args={[20, 20, 0xffd700, '#87ceeb']} />
+      <gridHelper rotation-x={Math.PI / 4} />
+      <gridHelper rotation={[Math.PI / 4, 0, 0]} />
       <Stats />
     </Canvas>
   )
