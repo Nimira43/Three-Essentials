@@ -17,6 +17,7 @@ export default function App() {
 
   return (
     <Canvas camera={{ position: [0, 0, 3] }}>
+      <color attach="background" args={[colour.value]} />
       <Polyhedron position={[-0.75, -0.75, 0]} polyhedron={polyhedron} />
       <Polyhedron position={[0.75, -0.75, 0]} polyhedron={polyhedron} />
       <Polyhedron position={[-0.75, 0.75, 0]} polyhedron={polyhedron} />
