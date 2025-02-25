@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber'
 import Polyhedron from './Polyhedron'
 import * as THREE from 'three'
 import { Stats, OrbitControls } from '@react-three/drei'
+import { useControls } from 'leva'
 
 export default function App() {
   const polyhedron = [
@@ -9,6 +10,10 @@ export default function App() {
     new THREE.SphereGeometry(0.785398),
     new THREE.DodecahedronGeometry(0.785398),
   ]
+
+  const colour = useControls({
+    value: 'blue'
+  })
 
   return (
     <Canvas camera={{ position: [0, 0, 3] }}>
