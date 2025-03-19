@@ -1,0 +1,6 @@
+Instructions
+------------
+
+1) Make a copy of the Template.
+2) Place the code from one of the archived files into the blank script file.
+3) Using the Terminal enter the command: npm run dev.

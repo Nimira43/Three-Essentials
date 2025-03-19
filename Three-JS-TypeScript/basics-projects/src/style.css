@@ -1,0 +1,18 @@
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
+#debug {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  border: 1px solid #ff4500;
+  padding: 10px;
+  width: 180px;
+  height: 220px;
+  color: #fffaf0;
+  pointer-events: none;
+}
