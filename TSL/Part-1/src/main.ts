@@ -56,14 +56,17 @@ const material = new THREE.NodeMaterial()
 //   THREE.LinearSRGBColorSpace
 // )
 
-// Example 3
-// material.fragmentNode = positionLocal
+// Example 3 and 5
+material.fragmentNode = positionLocal
 
 // Example 4
-material.fragmentNode = main()
+// material.fragmentNode = main()
 
 const mesh = new THREE.Mesh(
-  new THREE.PlaneGeometry(),
+  // new THREE.PlaneGeometry(),
+  
+  // Example 5 
+  new THREE.BoxGeometry(),
   material
 )
 scene.add(mesh)

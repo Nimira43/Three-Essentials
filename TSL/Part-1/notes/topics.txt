@@ -95,3 +95,4 @@ convertColorSpace
 THREE.SRGBColorSpace
 THREE.LinearSRGBColorSpace
 positionLocal
+abs, Fn, If, rotateUV, time, vec2
