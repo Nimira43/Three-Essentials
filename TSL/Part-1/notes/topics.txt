@@ -8,11 +8,7 @@ Console Logs
 // Three.js r173 - Node System
 
 // directives
-
-
 // structs
-
-
 // uniforms
 
 struct renderStruct {
@@ -37,7 +33,6 @@ var<private> varyings : VaryingsStruct;
 
 // codes
 
-
 @vertex
 fn main( @location( 0 ) position : vec3<f32> ) -> VaryingsStruct {
 
@@ -47,7 +42,6 @@ fn main( @location( 0 ) position : vec3<f32> ) -> VaryingsStruct {
 	var v_modelViewProjection : vec4<f32>;
 	var v_positionView : vec3<f32>;
 	var positionLocal : vec3<f32>;
-
 
 	// flow
 	// code
@@ -79,23 +73,14 @@ struct OutputStruct {
 var<private> output : OutputStruct;
 
 // uniforms
-
-
 // codes
-
 
 @fragment
 fn main(  ) -> OutputStruct {
 
 	// vars
-	
-
-
-
 	// flow
 	// code
-
-
 	// result
 
 	output.color = vec4<f32>( vec3<f32>( 1.0, 0.059511238155621766, 0.0 ), 1.0 );
@@ -104,3 +89,4 @@ fn main(  ) -> OutputStruct {
 
 }
 ---------------------
+TextureLoader

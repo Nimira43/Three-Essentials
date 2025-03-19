@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three/webgpu'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { color } from 'three/tsl'
+import { texture } from 'three/tsl'
 
 const scene = new THREE.Scene()
 
@@ -28,7 +29,10 @@ const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
 const material = new THREE.NodeMaterial()
-material.fragmentNode = color('#ff4500')
+// material.fragmentNode = color('#ff4500')
+material.fragmentNode = texture(
+  new THREE.TextureLoader().load('/billy.png')
+)
 
 const mesh = new THREE.Mesh(
   new THREE.PlaneGeometry(),
