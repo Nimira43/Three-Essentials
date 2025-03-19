@@ -24,23 +24,17 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
 })
 
-new OrbitControls(camera, renderer.domElement)
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
 
-const geometry = new THREE.BoxGeometry()
-const material = new THREE.MeshNormalMaterial({ wireframe: true })
-const cube = new THREE.Mesh(geometry, material)
-scene.add(cube)
-const stats = new Stats()
-document.body.appendChild(stats.dom)
-const gui = new GUI()
-const cubeFolder = gui.addFolder('Cube')
-cubeFolder.add(cube.rotation, 'x', 0, Math.PI * 2)
-cubeFolder.add(cube.rotation, 'y', 0, Math.PI * 2)
-cubeFolder.add(cube.rotation, 'z', 0, Math.PI * 2)
-cubeFolder.open()
-const cameraFolder = gui.addFolder('Camera')
-cameraFolder.add(camera.position, 'z', 0, 20)
-cameraFolder.open()
+const material = new THREE.NodeMaterial()
+material.fragmentNode = color('ff4500')
+
+const mesh = new THREE.Mesh(
+  new THREE.PlaneGeometry(),
+  material
+)
+scene.add(mesh)
 
 function animate() {
   requestAnimationFrame(animate)
