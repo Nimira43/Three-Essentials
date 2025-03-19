@@ -28,7 +28,7 @@ const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
 const material = new THREE.NodeMaterial()
-material.fragmentNode = color('ff4500')
+material.fragmentNode = color('#ff4500')
 
 const mesh = new THREE.Mesh(
   new THREE.PlaneGeometry(),
@@ -37,11 +37,8 @@ const mesh = new THREE.Mesh(
 scene.add(mesh)
 
 function animate() {
-  requestAnimationFrame(animate)
-  cube.rotation.x += 0.01
-  cube.rotation.y += 0.01
+  controls.update()
   renderer.render(scene, camera)
-  stats.update()
 }
 
 animate()
