@@ -57,16 +57,16 @@ const material = new THREE.NodeMaterial()
 // )
 
 // Example 3 and 5
-material.fragmentNode = positionLocal
+// material.fragmentNode = positionLocal
 
 // Example 4
-// material.fragmentNode = main()
+material.fragmentNode = main()
 
 const mesh = new THREE.Mesh(
-  // new THREE.PlaneGeometry(),
+  new THREE.PlaneGeometry(),
   
   // Example 5 
-  new THREE.BoxGeometry(),
+  // new THREE.BoxGeometry(),
   material
 )
 scene.add(mesh)
