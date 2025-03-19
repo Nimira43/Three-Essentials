@@ -1,12 +1,12 @@
 import './style.css'
 import * as THREE from 'three/webgpu'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { abs, Fn, If, positionLocal, rotateUV, time, vec2 } from 'three/tsl'
+
 // import { color } from 'three/tsl'
-import { texture, convertColorSpace } from 'three/tsl'
-import { positionLocal } from 'three/tsl'
+// import { texture, convertColorSpace } from 'three/tsl'
 
 const scene = new THREE.Scene()
-
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -30,7 +30,6 @@ const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
 const material = new THREE.NodeMaterial()
-
 
 // Example 1
 // material.fragmentNode = color('#ff4500')
