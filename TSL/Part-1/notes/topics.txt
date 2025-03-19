@@ -92,3 +92,6 @@ fn main(  ) -> OutputStruct {
 TextureLoader
 texture
 convertColorSpace
+THREE.SRGBColorSpace
+THREE.LinearSRGBColorSpace
+positionLocal

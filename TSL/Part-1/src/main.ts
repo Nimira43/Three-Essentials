@@ -3,6 +3,7 @@ import * as THREE from 'three/webgpu'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 // import { color } from 'three/tsl'
 import { texture, convertColorSpace } from 'three/tsl'
+import { positionLocal } from 'three/tsl'
 
 const scene = new THREE.Scene()
 
@@ -30,12 +31,19 @@ controls.enableDamping = true
 
 const material = new THREE.NodeMaterial()
 
+
+// Example 1
 // material.fragmentNode = color('#ff4500')
-material.fragmentNode = convertColorSpace(
-  texture(new THREE.TextureLoader().load('/billy.png')),
-  THREE.SRGBColorSpace,
-  THREE.LinearSRGBColorSpace
-)
+
+// Example 2
+// material.fragmentNode = convertColorSpace(
+//   texture(new THREE.TextureLoader().load('/billy.png')),
+//   THREE.SRGBColorSpace,
+//   THREE.LinearSRGBColorSpace
+// )
+
+// Example 3
+material.fragmentNode = positionLocal
 
 const mesh = new THREE.Mesh(
   new THREE.PlaneGeometry(),
