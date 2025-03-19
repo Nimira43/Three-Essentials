@@ -29,9 +29,12 @@ const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
 const material = new THREE.NodeMaterial()
+
 // material.fragmentNode = color('#ff4500')
-material.fragmentNode = texture(
-  new THREE.TextureLoader().load('/billy.png')
+material.fragmentNode = convertColorSpace(
+  texture(new THREE.TextureLoader().load('/billy.png')),
+  THREE.SRGBColorSpace,
+  THREE.LinearSRGBColorSpace
 )
 
 const mesh = new THREE.Mesh(
