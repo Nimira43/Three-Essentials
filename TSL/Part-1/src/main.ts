@@ -1,8 +1,7 @@
 import './style.css'
-import * as THREE from 'three'
+import * as THREE from 'three/webgpu'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import Stats from 'three/addons/libs/stats.module.js'
-import { GUI } from 'dat.gui'
+import { color } from 'three/tsl'
 
 const scene = new THREE.Scene()
 
@@ -12,9 +11,9 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 )
-camera.position.z = 1.5
+camera.position.z = 1
 
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE.WebGPURenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
