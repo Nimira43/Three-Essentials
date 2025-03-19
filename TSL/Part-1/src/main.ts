@@ -36,9 +36,18 @@ const mesh = new THREE.Mesh(
 )
 scene.add(mesh)
 
+renderer.debug.getShaderAsync(
+  scene,
+  camera,
+  mesh
+).then((e) => {
+  console.log(e.vertexShader)
+  console.log(e.fragmentShader)
+})
+
 function animate() {
   controls.update()
   renderer.render(scene, camera)
 }
 
-animate()
+
