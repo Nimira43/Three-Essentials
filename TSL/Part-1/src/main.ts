@@ -29,9 +29,24 @@ window.addEventListener('resize', () => {
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
+const main = Fn(() => {
+  const p = positionLocal.toVar()
+  p.assign(rotateUV(p.xy, time, vec2())) 
+
+  If(abs(p.x).greaterThan(0.45), () => {
+    // @ts-ignore
+    p.z = 1
+  })
+  If(abs(p.y).greaterThan(0.45), () => {
+    // @ts-ignore
+    p.z = 1
+  })
+  return p
+})
+
 const material = new THREE.NodeMaterial()
 
-// Example 1
+// Example 1 
 // material.fragmentNode = color('#ff4500')
 
 // Example 2
@@ -42,7 +57,10 @@ const material = new THREE.NodeMaterial()
 // )
 
 // Example 3
-material.fragmentNode = positionLocal
+// material.fragmentNode = positionLocal
+
+// Example 4
+material.fragmentNode = main()
 
 const mesh = new THREE.Mesh(
   new THREE.PlaneGeometry(),
