@@ -9,13 +9,14 @@ const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  10
 )
 camera.position.z = 1
 
 const renderer = new THREE.WebGPURenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
+renderer.setAnimationLoop(animate)
 
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight
