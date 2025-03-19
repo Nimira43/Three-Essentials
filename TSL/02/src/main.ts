@@ -1,7 +1,7 @@
 import './style.css'
 import * as THREE from 'three/webgpu'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { abs, Fn, If, positionLocal, rotateUV, time, vec2 } from 'three/tsl'
+import { Fn, positionLocal } from 'three/tsl'
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
@@ -28,37 +28,17 @@ controls.enableDamping = true
 
 const main = Fn(() => {
   const p = positionLocal.toVar()
-  p.assign(rotateUV(p.xy, time, vec2())) 
-
-  If(abs(p.x).greaterThan(0.45), () => {
-    // @ts-ignore
-    p.z = 1
-  })
-  If(abs(p.y).greaterThan(0.45), () => {
-    // @ts-ignore
-    p.z = 1
-  })
   return p
 })
 
 const material = new THREE.NodeMaterial()
-
-material.fragmentNode = main()
+material.fragmentNode = positionLocal.mul(4.999).fract().step(0.5)
 
 const mesh = new THREE.Mesh(
-  new THREE.PlaneGeometry(),
+  new THREE.BoxGeometry(),
   material
 )
 scene.add(mesh)
-
-renderer.debug.getShaderAsync(
-  scene,
-  camera,
-  mesh
-).then((e) => {
-  console.log(e.vertexShader)
-  console.log(e.fragmentShader)
-})
 
 function animate() {
   controls.update()
