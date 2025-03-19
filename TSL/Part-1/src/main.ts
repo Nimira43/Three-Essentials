@@ -1,8 +1,8 @@
 import './style.css'
 import * as THREE from 'three/webgpu'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { color } from 'three/tsl'
-import { texture } from 'three/tsl'
+// import { color } from 'three/tsl'
+import { texture, convertColorSpace } from 'three/tsl'
 
 const scene = new THREE.Scene()
 
