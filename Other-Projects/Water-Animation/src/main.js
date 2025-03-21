@@ -29,3 +29,10 @@ const environmentMap = await cubeTextureLoader.loadAsync([
 
 scene.background = environmentMap
 scene.environment = environmentMap
+
+camera.position.set(0.5, 0.25, -1)
+const constrols = new OrbitControls(
+  camera,
+  renderer.domElement
+)
+Controls.enableDamping = true
