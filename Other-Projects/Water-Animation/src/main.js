@@ -26,3 +26,6 @@ const environmentMap = await cubeTextureLoader.loadAsync([
   'pz.png',
   'nz.png'
 ])
+
+scene.background = environmentMap
+scene.environment = environmentMap
