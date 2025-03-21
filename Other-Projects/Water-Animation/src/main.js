@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { setupUI } from './ui'
 
 const clock = new THREE.Clock()
 const scene = new THREE.Scene()
@@ -50,7 +51,8 @@ function animate() {
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateWorldMatrix()
-  render.setSize(window.innerWidth, window.innerHeight)
+  renderer.setSize(window.innerWidth, window.innerHeight)
 })
 
 animate()
+setupUI()
