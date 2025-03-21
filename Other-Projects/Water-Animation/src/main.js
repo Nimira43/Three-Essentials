@@ -40,3 +40,10 @@ controls.enableDamping = true
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8)
 scene.add(ambientLight)
 
+function animate() {
+  const elapsedTime = clock.getElapsedTime()
+  controls.update()
+  renderer.render(scene, camera)
+  requestAnimationFrame(animate)
+}
+
