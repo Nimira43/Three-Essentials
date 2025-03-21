@@ -36,3 +36,7 @@ const controls = new OrbitControls(
   renderer.domElement
 )
 controls.enableDamping = true
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8)
+scene.add(ambientLight)
+
