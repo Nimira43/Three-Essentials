@@ -9,3 +9,9 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 )
+const renderer = new THREE.WebGLRenderer({ antialias: true })
+renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setPixelRatio(devicePixelRatio)
+renderer.toneMapping = THREE.NeutralToneMapping
+renderer.toneMappingExposure = 1.5
+document.body.appendChild(renderer.domElement)
