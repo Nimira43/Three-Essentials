@@ -15,3 +15,14 @@ renderer.setPixelRatio(devicePixelRatio)
 renderer.toneMapping = THREE.NeutralToneMapping
 renderer.toneMappingExposure = 1.5
 document.body.appendChild(renderer.domElement)
+
+const cubeTextureLoader = new THREE.CubeTextureLoader()
+cubeTextureLoader.setPath('/')
+const environmentMap = await cubeTextureLoader.loadAsync([
+  'px.png',
+  'nx.png',
+  'py.png',
+  'ny.png',
+  'pz.png',
+  'nz.png'
+])
