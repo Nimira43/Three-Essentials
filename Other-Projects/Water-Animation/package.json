@@ -1,6 +1,5 @@
 {
-  "name": "threejs-water-shader",
-  "private": true,
+  "name": "water-animation",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
