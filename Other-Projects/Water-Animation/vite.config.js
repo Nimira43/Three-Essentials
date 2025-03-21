@@ -1,7 +1,7 @@
 import glsl from 'vite-plugin-glsl';
 
 export default {
-  base: '/water-animation/',
+  base: '/',
   build: {
     sourcemap: true
   },
