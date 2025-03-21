@@ -47,3 +47,10 @@ function animate() {
   requestAnimationFrame(animate)
 }
 
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateWorldMatrix()
+  render.setSize(window.innerWidth, window.innerHeight)
+})
+
+animate()
